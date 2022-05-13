@@ -1,7 +1,7 @@
 import React,{useState, useEffect} from 'react';
 import PromotionCard from '../../../components/Promotion/Card/Card';
-import axios from 'axios';
-
+// import axios from 'axios';
+import api from 'services/api'
 const PagesPromotionList=() =>{
 
   //  const promotion= {
@@ -23,7 +23,7 @@ const PagesPromotionList=() =>{
 
      useEffect( () => {
 
-    axios.get('http://localhost:5000/promotions?_embed=comments')
+    api.get('/promotions?_embed=comments')
       .then(
         (response) => {
         console.log(response.data);
