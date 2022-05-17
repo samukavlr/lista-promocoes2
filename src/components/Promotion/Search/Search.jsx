@@ -17,27 +17,27 @@ const PromotionSearch =() => {
         if(search){
           params.title_like =search;
         }
-        const getSearch = async() => {
-          try{
-        const promotions = await api.get('/promotions?_embed=comments&_order=desc&_sort=id',{params})
-        setPromotions(promotions.response.data);
-        } catch (error) {
-          console.log(error);
-        }
-       }
-       getSearch();
-      },[search]);
+      //   const getSearch = async() => {
+      //     try{
+      //   const promotions = await api.get('/promotions?_embed=comments&_order=desc&_sort=id',{params})
+      //   setPromotions(promotions.response.data);
+      //   } catch (error) {
+      //     console.log(error);
+      //   }
+      //  }
+      //  getSearch();
+      // },[search]);
       
 
-  //     api.get('http://localhost:5000/promotions?_embed=comments&_order=desc&_sort=id', )
-  //    .then(
-  //      (response) => {
-  //     //  console.log(response.data);
-  //      setPromotions(response.data);
-  //      }
-  //    );
+      api.get('http://localhost:5000/promotions?_embed=comments&_order=desc&_sort=id',{params} )
+     .then(
+       (response) => {
+      //  console.log(response.data);
+       setPromotions(response.data);
+       }
+     );
 
-  //  }, [search] );
+   }, [search] );
     return (
         <>
           <header className={searchCss.promotionsearchHeader}>
