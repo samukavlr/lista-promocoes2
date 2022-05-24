@@ -27,7 +27,7 @@ const PromotionForm=({id})=>{
 
     useEffect(()=>{
         if(id){
-            axios.get(`http://localhost:5000/promotions/${id}`)
+            axios.get(`https://apifakejsonserver.azurewebsites.net/promotions${id}`)
             .then((response)=>{
                 setValues(response.data);
             })
@@ -40,8 +40,8 @@ const PromotionForm=({id})=>{
 
         const method = id ? 'put' : 'post';
         const url = id 
-            ? `http://localhost:5000/promotions/${id}` 
-            : 'http://localhost:5000/promotions'
+            ? `https://apifakejsonserver.azurewebsites.net/promotions${id}` 
+            : 'https://apifakejsonserver.azurewebsites.net/promotions'
 
         axios[method](url, values)
             .then( (response) => {

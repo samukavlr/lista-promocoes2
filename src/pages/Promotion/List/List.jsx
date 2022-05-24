@@ -23,7 +23,7 @@ const PagesPromotionList=() =>{
 
      useEffect( () => {
 
-    api.get('/promotions?_embed=comments')
+    api.get('https://apifakejsonserver.azurewebsites.net/promotions?_embed=comments')
       .then(
         (response) => {
         console.log(response.data);
