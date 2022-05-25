@@ -15,32 +15,33 @@ const PromotionSearch =() => {
 
     useEffect( () => {
       const params = {};
-        if(search){
-          params.title_like =search;
-        }
-        const getSearch = async() => {
-          try{
-        const promotions = await api.get('/promotions?_embed=comments&_order=desc&_sort=id',{params} )
-        setPromotions(promotions.data);
-        } catch (error) {
-          console.log(error);
-        }
-       }
-       getSearch();
-      },[search,onDelete]);
+      //   if(search){
+      //     params.title_like =search;
+      //   }
+      //   const getSearch = async() => {
+      //     try{
+      //   const promotions = await api.get('/promotions?_embed=comments&_order=desc&_sort=id',{params} )
+      //   setPromotions(promotions.data);
+      //   } catch (error) {
+      //     console.log(error);
+      //   }
+      //  }
+      //  getSearch();
+      // },[search,onDelete]);
 
 
       
 
-  //     api.get('https://apifakejsonserver.azurewebsites.net/promotions?_embed=comments&_order=desc&_sort=id',{params} )
-  //    .then(
-  //      (response) => {
-  //     //  console.log(response.data);
-  //      setPromotions(response.data);
-  //      }
-  //    );
+      api.get('https://apifakejsonserver.azurewebsites.net/promotions?_embed=comments&_order=desc&_sort=id',{params} )
+     .then(
+       (response) => {
+      //  console.log(response.data);
+       setPromotions(response.data);
+       }
+     );
+      
 
-  //  }, [search,onDelete] );
+   }, [search,onDelete] );
 
    const handleDelete= async (id) => {
      setOnDelete(id)
